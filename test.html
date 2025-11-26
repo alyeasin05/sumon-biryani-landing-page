@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumon Biryani House</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'Mukti', 'Vrinda', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;600;700;900&display=swap');
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100%;
+      background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      width: 100%;
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+      animation: slideDown 1s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: #ffffff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .brand-text h1 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      margin-bottom: 5px;
+    }
+
+    .brand-text p {
+      color: #fee2e2;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+
+    .language-toggle {
+      display: flex;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .lang-btn {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 20px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lang-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .lang-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .lang-btn.active {
+      background: #ffffff;
+      color: #dc2626;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+    }
+
+    .welcome-section {
+      max-width: 900px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+      margin-bottom: 60px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .welcome-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #dc2626, #991b1b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      line-height: 1.3;
+      position: relative;
+      display: inline-block;
+    }
+
+    .welcome-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #dc2626, #991b1b);
+      animation: expandUnderline 1s ease-out 0.8s forwards;
+    }
+
+    @keyframes expandUnderline {
+      to { width: 80%; }
+    }
+
+    .welcome-description {
+      font-size: 1.4rem;
+      color: #374151;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-top: 30px;
+    }
+
+    /* Social Links Section */
+    .social-section {
+      width: 100%;
+      max-width: 1000px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.6s forwards;
+      margin-bottom: 60px;
+    }
+
+    .social-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #dc2626;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .social-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 25px 35px;
+      background: #ffffff;
+      border-radius: 20px;
+      color: #374151;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .social-icon:hover::before {
+      width: 500px;
+      height: 500px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon.facebook:hover {
+      background: #1877f2;
+      border-color: #1877f2;
+      color: #ffffff;
+    }
+
+    .social-icon.instagram:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-color: #e6683c;
+      color: #ffffff;
+    }
+
+    .social-icon.whatsapp:hover {
+      background: #25d366;
+      border-color: #25d366;
+      color: #ffffff;
+    }
+
+    .social-icon.website:hover {
+      background: #4f46e5;
+      border-color: #4f46e5;
+      color: #ffffff;
+    }
+
+    .social-icon.call:hover {
+      background: #16a34a;
+      border-color: #16a34a;
+      color: #ffffff;
+    }
+
+    .social-icon.tiktok:hover {
+      background: #000000;
+      border-color: #ff0050;
+      color: #ffffff;
+    }
+
+    .social-icon svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .social-icon span {
+      position: relative;
+      z-index: 1;
+    }
+
+   /* Location Section */
+    .location-section {
+      width: 100%;
+      max-width: 1000px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.9s forwards;
+      margin-bottom: 60px;
+    }
+
+    .location-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #dc2626;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    .location-card {
+      background: #ffffff;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+
+    .location-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(220, 38, 38, 0.2);
+      border-color: #dc2626;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      overflow: hidden;
+    }
+
+    .map-preview {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: 
+        linear-gradient(0deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+
+    .map-pin-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .map-pin {
+      font-size: 5rem;
+      filter: drop-shadow(0 10px 20px rgba(220, 38, 38, 0.5));
+      animation: pinBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes pinBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .map-rings {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+    }
+
+    .map-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgba(220, 38, 38, 0.3);
+      border-radius: 50%;
+      animation: ripple 3s ease-out infinite;
+    }
+
+    .map-ring:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .map-ring:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    @keyframes ripple {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+      }
+    }
+
+    .map-overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-overlay-icon {
+      font-size: 1.5rem;
+    }
+
+    .map-overlay-text {
+      font-size: 0.9rem;
+      color: #374151;
+      font-weight: 600;
+    }
+
+    .location-info {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .location-address-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #fef2f2 0%, #fff5f5 100%);
+      border-radius: 15px;
+      border-left: 5px solid #dc2626;
+    }
+
+    .location-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .location-address {
+      flex: 1;
+      font-size: 1.3rem;
+      color: #374151;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .maps-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 35px;
+      background: linear-gradient(135deg, #dc2626, #991b1b);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+      align-self: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .maps-link:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(220, 38, 38, 0.4);
+    }
+
+    .maps-link svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #e5e7eb;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    .footer-heart {
+      color: #dc2626;
+      display: inline-block;
+      animation: heartBeat 1.5s ease-in-out infinite;
+      font-size: 1.4rem;
+      margin: 0 5px;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+    }
+
+    /* Language Content */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Preloader Styles */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-logo {
+      font-size: 6rem;
+      animation: bounceIn 1s ease-out;
+      margin-bottom: 30px;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .preloader-text {
+      color: #ffffff;
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .preloader-subtext {
+      color: #fee2e2;
+      font-size: 1.2rem;
+      font-weight: 300;
+      text-align: center;
+      animation: fadeInUp 1s ease-out 0.5s backwards;
+      margin-bottom: 40px;
+    }
+
+    .preloader-spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .preloader-dots {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .preloader-dot {
+      width: 15px;
+      height: 15px;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+
+    .preloader-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .preloader-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .main-content.visible {
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .logo-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .brand-text h1 {
+        font-size: 2rem;
+      }
+
+      .welcome-title {
+        font-size: 2.5rem;
+      }
+
+      .welcome-description {
+        font-size: 1.2rem;
+      }
+
+      .social-heading {
+        font-size: 2rem;
+      }
+
+      .social-icons {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 25px;
+      }
+
+      .location-address {
+        font-size: 1.2rem;
+      }
+
+      .maps-link {
+        align-self: center;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Preloader -->
+  <div class="preloader" id="preloader">
+   <div class="preloader-logo">
+    <img src="Sumon Biriyani Color-01.png" alt="" width="500px" height="500px">
+   </div>
+   <h1 class="preloader-text lang-content bn active">সুমন বিরিয়ানি হাউস</h1>
+   <h1 class="preloader-text lang-content en">SUMON BIRYANI HOUSE</h1>
+   <p class="preloader-subtext lang-content bn active">স্বাগতম</p>
+   <p class="preloader-subtext lang-content en">Welcome</p>
+   <div class="preloader-spinner"></div>
+   <div class="preloader-dots">
+    <div class="preloader-dot"></div>
+    <div class="preloader-dot"></div>
+    <div class="preloader-dot"></div>
+   </div>
+  </div>
+  <div class="page-wrapper main-content" id="mainContent">
+   <header>
+    <div class="header-content">
+     <div class="logo-section">
+      <div class="logo">
+       <img src="Sumon Biriyani Color-01.png" alt="">
+      </div>
+      <div class="brand-text">
+       <h1 id="restaurant-name" class="lang-content en">SUMON BIRYANI HOUSE</h1>
+       <h1 id="restaurant-name-bn" class="lang-content bn active">সুমন বিরিয়ানি হাউস</h1>
+       <p id="tagline" class="lang-content en">A part of Yasin Sound & Event</p>
+       <p id="tagline-bn" class="lang-content bn active">ইয়াসিন সাউন্ড এন্ড ইভেন্ট এর একটি অংশ প্রতিষ্ঠান</p>
+      </div>
+     </div>
+     <div class="language-toggle"><button class="lang-btn" data-lang="en">EN</button> <button class="lang-btn active" data-lang="bn">বাং</button>
+     </div>
+    </div>
+   </header>
+   <main>
+    <section class="welcome-section">
+     <h2 class="welcome-title lang-content en" id="welcome-title-en">✨ Welcome to Sumon Biryani House ✨</h2>
+     <h2 class="welcome-title lang-content bn active" id="welcome-title-bn">✨ সুমন বিরিয়ানি হাউসে স্বাগতম ✨</h2>
+     <p class="welcome-description lang-content en" id="welcome-description-en">Follow us on social media for the latest updates, special moments, and delicious biryani content!</p>
+     <p class="welcome-description lang-content bn active" id="welcome-description-bn">সর্বশেষ আপডেট, বিশেষ মুহূর্ত এবং সুস্বাদু বিরিয়ানি কন্টেন্টের জন্য সোশ্যাল মিডিয়ায় আমাদের অনুসরণ করুন!</p>
+    </section>
+    <section class="social-section">
+     <h3 class="social-heading lang-content en" id="social-heading-en">Connect With Us</h3>
+     <h3 class="social-heading lang-content bn active" id="social-heading-bn">আমাদের সাথে যুক্ত হন</h3>
+     <div class="social-icons"><a href="https://www.facebook.com/sumonbiryaniofficial" class="social-icon facebook" id="facebook-link" target="_blank" rel="noopener noreferrer">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+       </svg><span>ফেসবুক</span> </a> <a href="https://www.instagram.com/sumonbiryanihouse" class="social-icon instagram" id="instagram-link" target="_blank" rel="noopener noreferrer">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+       </svg><span>ইনস্টাগ্রাম</span> </a> <a href="https://wa.me/8801943299913" class="social-icon whatsapp" id="whatsapp-link" target="_blank" rel="noopener noreferrer">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+       </svg><span>হোয়াটসঅ্যাপ</span> </a> <a href="http://sumonbiryanihouse.netlify.app" class="social-icon website" id="website-link" target="_blank" rel="noopener noreferrer">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+       </svg><span>ওয়েবসাইট</span> </a> <a href="tel:+01943299913" class="social-icon call" id="call-link">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+       </svg><span>ফোন করুন</span> </a> <a href="https://www.tiktok.com/@sumonbiryani" class="social-icon tiktok" id="tiktok-link" target="_blank" rel="noopener noreferrer">
+       <svg width="32" height="32" viewbox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+       </svg><span>টিকটক</span> </a>
+     </div>
+    </section>
+   <section class="location-section">
+    <h3 class="location-heading lang-content en" id="location-heading-en">Find Us</h3>
+    <h3 class="location-heading lang-content bn active" id="location-heading-bn">আমাদের খুঁজুন</h3>
+
+    <div class="location-card">
+        
+        <!-- Map Container -->
+        <div class="map-container">
+            <div class="map-preview">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; border-radius: 16px;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1336.0016905910115!2d90.44479870871332!3d23.744937518334304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b95a88fc0901%3A0xaec98b56da5f9713!2sSumon%20Biryani%20House%20%26%20Catering!5e1!3m2!1sen!2sbd!4v1764159876512!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Location Info -->
+        <div class="location-info">
+            <div class="location-address-row">
+                <div class="location-icon">📍</div>
+                <div>
+                    <p class="location-address lang-content en" id="location-address-en">
+                        Nandipara Bridge, Khilgaon, Dhaka-1219
+                    </p>
+                    <p class="location-address lang-content bn active" id="location-address-bn">
+                        নন্দীপাড়া ব্রিজ, খিলগাঁও, ঢাকা-১২১৯
+                    </p>
+                </div>
+            </div>
+
+            <a href="https://maps.app.goo.gl/6gtzFTgpR7GDJu8k8" class="maps-link" id="maps-link" 
+               target="_blank" rel="noopener noreferrer">
+
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+
+                <span class="lang-content en">Open in Google Maps</span>
+                <span class="lang-content bn active">গুগল ম্যাপে খুলুন</span>
+
+            </a>
+        </div>
+
+    </div>
+</section>
+   </main>
+   <footer>
+    <div class="footer-content">
+     <p class="lang-content en active" id="footer-text-en">Made with <span class="footer-heart">❤️</span> for biryani lovers</p>
+     <p class="lang-content bn" id="footer-text-bn">বিরিয়ানি প্রেমীদের জন্য <span class="footer-heart">❤️</span> দিয়ে তৈরি</p>
+    </div>
+   </footer>
+  </div>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script>
+    const defaultConfig = {
+      restaurant_name_en: "SUMON BIRYANI HOUSE",
+      restaurant_name_bn: "সুমন বিরিয়ানি হাউস",
+      tagline_en: "Yeasin Sound & Event - Your Complete Event Partner",
+      tagline_bn: "��য়াসিন সাউন্ড এন্ড ইভেন্ট এর একটি অংশ প্রতিষ্ঠান",
+      welcome_title_en: "Welcome to Sumon Biryani House",
+      welcome_title_bn: "সুমন বিরিয়ানি হাউসে স্বাগতম",
+      welcome_description_en: "Follow us on social media for the latest updates, special moments, and delicious biryani content!",
+      welcome_description_bn: "সর্বশেষ আপডেট, বিশেষ মুহূর্ত এবং সুস্বাদু বিরিয়ানি কন্টেন্টের জন্য সোশ্যাল মি�����িয়ায় আমাদের অনুসরণ �����রুন!",
+      social_heading_en: "Connect With Us",
+      social_heading_bn: "আমাদের সাথে যুক্ত হন",
+      facebook_link: "https://facebook.com",
+      instagram_link: "https://instagram.com",
+      whatsapp_link: "https://wa.me/",
+      website_link: "https://example.com",
+      call_link: "tel:+1234567890",
+      tiktok_link: "https://tiktok.com",
+      location_address_en: "Nandipara Bridge, Khilgaon, Dhaka-1219",
+      location_address_bn: "নন্দীপাড়া ব্রিজ, খিলগাঁও, ঢাকা-১২১৯",
+      maps_link: "https://maps.google.com",
+      footer_text_en: "Made with love for biryani lovers",
+      footer_text_bn: "বিরিয়ানি প্রেমীদের জন্য ভালোবাসা দিয়ে তৈরি",
+      background_color: "#ffffff",
+      primary_color: "#dc2626",
+      text_color: "#374151",
+      card_background: "#ffffff",
+      font_family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+      font_size: 16
+    };
+
+    let currentLang = 'bn';
+
+    async function onConfigChange(config) {
+      const baseFontSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Arial, sans-serif';
+      
+      // Update English content
+      document.getElementById('restaurant-name').textContent = config.restaurant_name_en || defaultConfig.restaurant_name_en;
+      document.getElementById('restaurant-name-bn').textContent = config.restaurant_name_bn || defaultConfig.restaurant_name_bn;
+      document.getElementById('tagline').textContent = config.tagline_en || defaultConfig.tagline_en;
+      document.getElementById('tagline-bn').textContent = config.tagline_bn || defaultConfig.tagline_bn;
+      document.getElementById('welcome-title-en').textContent = config.welcome_title_en || defaultConfig.welcome_title_en;
+      document.getElementById('welcome-title-bn').textContent = config.welcome_title_bn || defaultConfig.welcome_title_bn;
+      document.getElementById('welcome-description-en').textContent = config.welcome_description_en || defaultConfig.welcome_description_en;
+      document.getElementById('welcome-description-bn').textContent = config.welcome_description_bn || defaultConfig.welcome_description_bn;
+      document.getElementById('social-heading-en').textContent = config.social_heading_en || defaultConfig.social_heading_en;
+      document.getElementById('social-heading-bn').textContent = config.social_heading_bn || defaultConfig.social_heading_bn;
+      
+      // Update social links
+      document.getElementById('facebook-link').href = config.facebook_link || defaultConfig.facebook_link;
+      document.getElementById('instagram-link').href = config.instagram_link || defaultConfig.instagram_link;
+      document.getElementById('whatsapp-link').href = config.whatsapp_link || defaultConfig.whatsapp_link;
+      document.getElementById('website-link').href = config.website_link || defaultConfig.website_link;
+      document.getElementById('call-link').href = config.call_link || defaultConfig.call_link;
+      document.getElementById('tiktok-link').href = config.tiktok_link || defaultConfig.tiktok_link;
+      
+      // Update location
+      document.getElementById('location-address-en').textContent = config.location_address_en || defaultConfig.location_address_en;
+      document.getElementById('location-address-bn').textContent = config.location_address_bn || defaultConfig.location_address_bn;
+      document.getElementById('maps-link').href = config.maps_link || defaultConfig.maps_link;
+      
+      // Update footer
+      const footerTextEn = config.footer_text_en || defaultConfig.footer_text_en;
+      const footerTextBn = config.footer_text_bn || defaultConfig.footer_text_bn;
+      document.getElementById('footer-text-en').innerHTML = `${footerTextEn.split(' for ')[0]} <span class="footer-heart">❤️</span> ${footerTextEn.split(' for ')[1] || 'for biryani lovers'}`;
+      document.getElementById('footer-text-bn').innerHTML = `${footerTextBn.split('জন্য')[0]}জন্য <span class="footer-heart">❤️</span> ${footerTextBn.split('দিয়ে')[1] || 'দিয়ে তৈরি'}`;
+      
+      // Apply font styles
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.querySelectorAll('.brand-text h1').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 2.5}px`;
+      });
+      document.querySelectorAll('.brand-text p').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 1.1}px`;
+      });
+      document.querySelectorAll('.welcome-title').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 3.5}px`;
+      });
+      document.querySelectorAll('.welcome-description').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 1.4}px`;
+      });
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.card_background || defaultConfig.card_background,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.card_background = value;
+                window.elementSdk.setConfig({ card_background: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["restaurant_name_en", config.restaurant_name_en || defaultConfig.restaurant_name_en],
+        ["restaurant_name_bn", config.restaurant_name_bn || defaultConfig.restaurant_name_bn],
+        ["tagline_en", config.tagline_en || defaultConfig.tagline_en],
+        ["tagline_bn", config.tagline_bn || defaultConfig.tagline_bn],
+        ["welcome_title_en", config.welcome_title_en || defaultConfig.welcome_title_en],
+        ["welcome_title_bn", config.welcome_title_bn || defaultConfig.welcome_title_bn],
+        ["welcome_description_en", config.welcome_description_en || defaultConfig.welcome_description_en],
+        ["welcome_description_bn", config.welcome_description_bn || defaultConfig.welcome_description_bn],
+        ["social_heading_en", config.social_heading_en || defaultConfig.social_heading_en],
+        ["social_heading_bn", config.social_heading_bn || defaultConfig.social_heading_bn],
+        ["facebook_link", config.facebook_link || defaultConfig.facebook_link],
+        ["instagram_link", config.instagram_link || defaultConfig.instagram_link],
+        ["whatsapp_link", config.whatsapp_link || defaultConfig.whatsapp_link],
+        ["website_link", config.website_link || defaultConfig.website_link],
+        ["call_link", config.call_link || defaultConfig.call_link],
+        ["tiktok_link", config.tiktok_link || defaultConfig.tiktok_link],
+        ["location_address_en", config.location_address_en || defaultConfig.location_address_en],
+        ["location_address_bn", config.location_address_bn || defaultConfig.location_address_bn],
+        ["maps_link", config.maps_link || defaultConfig.maps_link],
+        ["footer_text_en", config.footer_text_en || defaultConfig.footer_text_en],
+        ["footer_text_bn", config.footer_text_bn || defaultConfig.footer_text_bn]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Language toggle functionality
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-content').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll(`.lang-content.${lang}`).forEach(el => {
+        el.classList.add('active');
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        switchLanguage(this.dataset.lang);
+      });
+    });
+
+    // Preloader functionality
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        const mainContent = document.getElementById('mainContent');
+        
+        preloader.classList.add('hidden');
+        mainContent.classList.add('visible');
+        
+        // Remove preloader from DOM after animation
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 2000); // Show preloader for 2 seconds
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a493369f0894e9c',t:'MTc2NDE1ODE2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
